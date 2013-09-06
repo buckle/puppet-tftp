@@ -8,7 +8,7 @@ class tftp::config {
        xinetd::service { 'tftp':
          port        => '69',
          server      => '/usr/sbin/in.tftpd',
-         server_args => "-v -s ${tftp::params::root} -m /etc/tftpd.map",
+         server_args => "-B 1380 -vvvv -s ${tftp::params::root} -m /etc/tftpd.map",
          socket_type => 'dgram',
          protocol    => 'udp',
          cps         => '100 2',
